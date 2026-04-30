@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { z } from "zod";
 import { Phone, Mail, MapPin } from "lucide-react";
+import { PHONE_DISPLAY, PHONE_TEL } from "@/lib/contact";
 
 const contactSchema = z.object({
   name: z.string().trim().min(1, "Name is required").max(100),
@@ -121,7 +122,9 @@ const Contact = () => {
                   <Phone className="h-5 w-5 text-accent mt-0.5 shrink-0" />
                   <div>
                     <p className="text-foreground font-medium">Phone</p>
-                     <a href="tel:2542260938" className="text-muted-foreground hover:text-accent transition-colors text-base">(254) 226-0938</a>
+                     <a href={PHONE_TEL} className="text-muted-foreground hover:text-accent transition-colors text-base">
+                       {PHONE_DISPLAY}
+                     </a>
                   </div>
                 </div>
                 <div className="flex items-start gap-3">

@@ -3,6 +3,7 @@
 import Link from "next/link";
 import PageBreadcrumb from "./PageBreadcrumb";
 import { ArrowRight, Phone } from "lucide-react";
+import { PHONE_DISPLAY, PHONE_TEL } from "@/lib/contact";
 
 interface ContentBlock {
   type: "text";
@@ -123,8 +124,8 @@ const ServicePageTemplate = ({ title, heroImage, breadcrumbLabel, blocks }: Serv
           <Link href="/contact" className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-accent text-accent-foreground font-bold rounded text-lg hover:bg-accent/90 transition-colors">
             Get a Quote <ArrowRight className="h-5 w-5" />
           </Link>
-          <a href="tel:2542260938" className="inline-flex items-center justify-center gap-2 px-8 py-4 border-2 border-foreground/30 text-foreground font-bold rounded text-lg hover:border-accent hover:text-accent transition-colors">
-            <Phone className="h-5 w-5" /> (254) 226-0938
+          <a href={PHONE_TEL} className="inline-flex items-center justify-center gap-2 px-8 py-4 border-2 border-foreground/30 text-foreground font-bold rounded text-lg hover:border-accent hover:text-accent transition-colors">
+            <Phone className="h-5 w-5" /> {PHONE_DISPLAY}
           </a>
         </div>
       </div>

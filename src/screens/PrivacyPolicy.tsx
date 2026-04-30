@@ -1,4 +1,5 @@
 import PageBreadcrumb from "@/components/PageBreadcrumb";
+import { PHONE_DISPLAY, PHONE_TEL } from "@/lib/contact";
 
 const PrivacyPolicy = () => (
   <>
@@ -55,7 +56,11 @@ const PrivacyPolicy = () => (
             Barnhardt Performance<br />
             17152 115th St<br />
             Bloomer, WI 54724<br />
-            Phone: <a href="tel:2542260938" className="text-accent hover:underline">(254) 226-0938</a><br />
+            Phone:{" "}
+            <a href={PHONE_TEL} className="text-accent hover:underline">
+              {PHONE_DISPLAY}
+            </a>
+            <br />
             Email: <a href="mailto:barnhardtperformance@gmail.com" className="text-accent hover:underline">barnhardtperformance@gmail.com</a>
           </p>
         </div>

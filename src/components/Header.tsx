@@ -5,6 +5,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Menu, X, ChevronDown, Phone } from "lucide-react";
 import { Sheet, SheetContent, SheetTrigger, SheetTitle } from "@/components/ui/sheet";
+import { PHONE_DISPLAY, PHONE_TEL } from "@/lib/contact";
 
 const services = [
 { name: "Engine Building", path: "/services/engine-building" },
@@ -58,8 +59,8 @@ const Header = () => {
         <div className="hidden lg:flex flex-col items-end gap-1">
           {/* Phone and Quote */}
           <div className="flex items-center gap-4 py-1">
-            <a href="tel:2542260938" className="inline-flex items-center gap-2 text-foreground/80 hover:text-accent transition-colors text-base">
-              <Phone className="h-4 w-4 text-accent" /> (254) 226-0938
+            <a href={PHONE_TEL} className="inline-flex items-center gap-2 text-foreground/80 hover:text-accent transition-colors text-base">
+              <Phone className="h-4 w-4 text-accent" /> {PHONE_DISPLAY}
             </a>
             <Link href="/contact" className="px-5 py-1.5 bg-accent text-accent-foreground font-bold rounded hover:bg-accent/90 transition-colors text-base">
               Get a Quote

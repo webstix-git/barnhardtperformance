@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { ArrowRight, Phone, Shield, Wrench, Gauge, Award, Star, MapPin, Mail } from "lucide-react";
+import { PHONE_DISPLAY, PHONE_TEL } from "@/lib/contact";
 
 const services = [
 { name: "Engine Building", desc: "Custom engine builds designed for maximum horsepower, torque, and reliability. From street performance to full race applications.", path: "/services/engine-building", icon: Wrench },
@@ -200,8 +201,8 @@ const Index = () =>
           <Link href="/contact" className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-accent text-accent-foreground font-bold rounded text-lg hover:bg-accent/90 transition-colors">
             Contact Us Today <ArrowRight className="h-5 w-5" />
           </Link>
-          <a href="tel:2542260938" className="inline-flex items-center justify-center gap-2 px-8 py-4 border-2 border-foreground/30 text-foreground font-bold rounded text-lg hover:border-accent hover:text-accent transition-colors">
-            <Phone className="h-5 w-5" /> (254) 226-0938
+          <a href={PHONE_TEL} className="inline-flex items-center justify-center gap-2 px-8 py-4 border-2 border-foreground/30 text-foreground font-bold rounded text-lg hover:border-accent hover:text-accent transition-colors">
+            <Phone className="h-5 w-5" /> {PHONE_DISPLAY}
           </a>
         </div>
       </div>
@@ -220,7 +221,9 @@ const Index = () =>
           </div>
           <div className="flex flex-col items-center gap-2">
             <Phone className="h-5 w-5 text-accent" />
-            <a href="tel:2542260938" className="text-foreground/80 hover:text-accent transition-colors text-base">(254) 226-0938</a>
+            <a href={PHONE_TEL} className="text-foreground/80 hover:text-accent transition-colors text-base">
+              {PHONE_DISPLAY}
+            </a>
           </div>
           <div className="flex flex-col items-center gap-2">
             <Mail className="h-5 w-5 text-accent" />

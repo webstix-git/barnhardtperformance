@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import Script from "next/script";
 import Providers from "./providers";
 import Layout from "@/components/Layout";
 import { SITE_URL, absoluteUrl } from "@/lib/site";
@@ -67,14 +66,13 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang="en" suppressHydrationWarning>
       <head>
         <meta name="apple-mobile-web-app-title" content="Barnhardt Performance" />
-      </head>
-      <body>
-        <Script
-          id="structured-data"
+        <script
           type="application/ld+json"
-          strategy="afterInteractive"
+          // eslint-disable-next-line react/no-danger
           dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredDataGraph) }}
         />
+      </head>
+      <body>
         <Providers>
           <Layout>{children}</Layout>
         </Providers>

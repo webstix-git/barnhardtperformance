@@ -1,4 +1,5 @@
 import { SITE_URL } from "@/lib/site";
+import { PHONE_E164 } from "@/lib/contact";
 
 export type JsonLd = Record<string, unknown>;
 
@@ -31,7 +32,7 @@ export function jsonLdLocalBusiness(): JsonLd {
     "@id": `${SITE_URL}#localbusiness`,
     name: "Barnhardt Performance",
     url: SITE_URL,
-    telephone: "+1-254-226-0938",
+    telephone: PHONE_E164,
     email: "barnhardtperformance@gmail.com",
     priceRange: "$$",
     foundingDate: "2017",

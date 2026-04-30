@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { CheckCircle, ArrowRight, Phone } from "lucide-react";
+import { PHONE_TEL } from "@/lib/contact";
 
 const ThankYou = () => (
   <>
@@ -16,7 +17,7 @@ const ThankYou = () => (
         <Link href="/services" className="inline-flex items-center justify-center gap-2 px-6 py-3 border border-accent text-accent font-bold rounded hover:bg-accent/10 transition-colors">
           Explore Services
         </Link>
-        <a href="tel:2542260938" className="inline-flex items-center justify-center gap-2 px-6 py-3 border border-border text-foreground/80 font-bold rounded hover:border-accent hover:text-accent transition-colors">
+        <a href={PHONE_TEL} className="inline-flex items-center justify-center gap-2 px-6 py-3 border border-border text-foreground/80 font-bold rounded hover:border-accent hover:text-accent transition-colors">
           <Phone className="h-4 w-4" /> Call Us Now
         </a>
       </div>

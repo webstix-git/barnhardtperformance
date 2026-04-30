@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { Phone, Mail, MapPin, Facebook, Shield } from "lucide-react";
+import { PHONE_DISPLAY, PHONE_TEL } from "@/lib/contact";
 
 const Footer = () =>
 <footer className="bg-card border-t border-border">
@@ -76,7 +77,9 @@ const Footer = () =>
             </li>
             <li className="flex items-center gap-3">
               <Phone className="h-4 w-4 text-accent shrink-0" />
-              <a href="tel:2542260938" className="text-muted-foreground hover:text-accent transition-colors text-sm">(254) 226-0938</a>
+              <a href={PHONE_TEL} className="text-muted-foreground hover:text-accent transition-colors text-sm">
+                {PHONE_DISPLAY}
+              </a>
             </li>
             <li className="flex items-center gap-3">
               <Mail className="h-4 w-4 text-accent shrink-0" />
