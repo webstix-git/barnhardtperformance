@@ -16,6 +16,7 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "/",
   },
+  manifest: "/manifest.json",
   openGraph: {
     type: "website",
     locale: "en_US",
@@ -32,7 +33,12 @@ export const metadata: Metadata = {
     images: [absoluteUrl("/twitter-image")],
   },
   icons: {
-    icon: [{ url: "/icon", type: "image/png" }],
+    icon: [
+      { url: "/icon0.svg", type: "image/svg+xml" },
+      { url: "/icon1.png", type: "image/png" },
+    ],
+    apple: [{ url: "/apple-icon.png", type: "image/png" }],
+    shortcut: ["/favicon.ico"],
   },
 };
 
@@ -59,6 +65,9 @@ const structuredDataGraph = [
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en" suppressHydrationWarning>
+      <head>
+        <meta name="apple-mobile-web-app-title" content="Barnhardt Performance" />
+      </head>
       <body>
         <Script
           id="structured-data"
