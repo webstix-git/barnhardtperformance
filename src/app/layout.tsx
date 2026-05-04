@@ -1,9 +1,12 @@
 import type { Metadata } from "next";
+import Script from "next/script";
 import Providers from "./providers";
 import Layout from "@/components/Layout";
 import { SITE_URL, absoluteUrl } from "@/lib/site";
 import { jsonLdLocalBusiness, jsonLdOrganization, jsonLdWebsite } from "@/lib/structured-data";
 import "./globals.css";
+
+const GA_MEASUREMENT_ID = "G-E316PP584P";
 
 export const metadata: Metadata = {
   title: {
@@ -73,6 +76,18 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         />
       </head>
       <body>
+        <Script
+          src={`https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`}
+          strategy="afterInteractive"
+        />
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', '${GA_MEASUREMENT_ID}');
+          `}
+        </Script>
         <Providers>
           <Layout>{children}</Layout>
         </Providers>
