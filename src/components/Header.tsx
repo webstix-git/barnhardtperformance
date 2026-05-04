@@ -51,7 +51,7 @@ const Header = () => {
           <img
             src="/images/logo.png"
             alt="Barnhardt Performance"
-            className={`object-contain rounded transition-all duration-300 ease-in-out ${scrolled ? "h-[70px] w-[70px]" : "h-[140px] w-[140px]"}`}
+            className={`object-contain rounded transition-all duration-300 ease-in-out ${scrolled ? "h-[70px] w-[70px]" : "h-[165px] w-[165px]"}`}
           />
         </Link>
 
