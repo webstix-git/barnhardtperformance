@@ -10,7 +10,6 @@ const Footer = () =>
         <div>
           <Link href="/" className="flex items-center gap-3 mb-4">
             <img src="/images/logo.png" alt="Barnhardt Performance" className="w-[130px] h-[130px] rounded object-contain" />
-            <span className="font-heading text-lg font-bold text-foreground">BARNHARDT PERFORMANCE</span>
           </Link>
           <p className="text-muted-foreground leading-relaxed text-sm">
             Veteran-owned performance shop with over 20 years of automotive experience. Built for power. Driven by precision.
