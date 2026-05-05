@@ -1,13 +1,10 @@
 "use client";
 
-import { useState, useRef } from "react";
+import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { z } from "zod";
 import { Phone, Mail, MapPin } from "lucide-react";
-import { Turnstile, type TurnstileInstance } from "@marsidev/react-turnstile";
 import { PHONE_DISPLAY, PHONE_TEL } from "@/lib/contact";
-
-const TURNSTILE_SITE_KEY = "0x4AAAAAACmutPDloFLjJ8s_";
 
 const contactSchema = z.object({
   name: z.string().trim().min(1, "Name is required").max(100),
@@ -36,9 +33,6 @@ export default function ContactClient() {
   const [form, setForm] = useState<FormData>({ name: "", email: "", phone: "", service: "", message: "" });
   const [errors, setErrors] = useState<Partial<Record<keyof FormData, string>>>({});
   const [submitting, setSubmitting] = useState(false);
-  const [captchaToken, setCaptchaToken] = useState<string | null>(null);
-  const [captchaError, setCaptchaError] = useState<string | null>(null);
-  const turnstileRef = useRef<TurnstileInstance>(null);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -52,24 +46,17 @@ export default function ContactClient() {
       setErrors(fieldErrors);
       return;
     }
-    if (!captchaToken) {
-      setCaptchaError("Please complete the captcha verification");
-      return;
-    }
     setErrors({});
-    setCaptchaError(null);
     setSubmitting(true);
     try {
       await fetch("https://ywwxvriolxwuqcwjaluh.supabase.co/functions/v1/form-submit/ec84ae54-028c-40f3-88c7-63f4dadc7cbe", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ ...result.data, captchaToken }),
+        body: JSON.stringify(result.data),
       });
       router.push("/thank-you");
     } catch {
       setSubmitting(false);
-      turnstileRef.current?.reset();
-      setCaptchaToken(null);
     }
   };
 
@@ -162,30 +149,9 @@ export default function ContactClient() {
             />
             {errors.message && <p className="text-destructive text-sm mt-1">{errors.message}</p>}
           </div>
-          <div>
-            <Turnstile
-              ref={turnstileRef}
-              siteKey={TURNSTILE_SITE_KEY}
-              onSuccess={(token) => {
-                setCaptchaToken(token);
-                setCaptchaError(null);
-              }}
-              onError={() => {
-                setCaptchaError("Captcha verification failed. Please try again.");
-                setCaptchaToken(null);
-              }}
-              onExpire={() => {
-                setCaptchaToken(null);
-              }}
-              options={{
-                theme: "dark",
-              }}
-            />
-            {captchaError && <p className="text-destructive text-sm mt-1">{captchaError}</p>}
-          </div>
           <button
             type="submit"
-            disabled={submitting || !captchaToken}
+            disabled={submitting}
             className="w-full px-6 py-3 bg-accent text-accent-foreground font-bold rounded hover:bg-accent/90 disabled:opacity-60 disabled:cursor-not-allowed transition-colors text-lg"
           >
             Send Message
