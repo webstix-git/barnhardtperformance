@@ -24,7 +24,7 @@ const Index = () =>
         <div className="max-w-2xl">
           <div className="flex items-center gap-2 mb-4">
             <Shield className="h-4 w-4 text-accent" />
-            <span className="text-xs font-semibold text-accent uppercase tracking-widest">Veteran-Owned &bull; Est. 2017</span>
+            <span className="text-xs font-semibold text-accent uppercase tracking-widest">Veteran-Owned &bull; Est. 2006</span>
           </div>
           <h1 className="font-heading text-5xl md:text-6xl lg:text-7xl font-bold text-foreground leading-tight mb-6">
             Built for Power.<br />Driven by Precision.

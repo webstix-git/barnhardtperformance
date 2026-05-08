@@ -35,7 +35,7 @@ export function jsonLdLocalBusiness(): JsonLd {
     telephone: PHONE_E164,
     email: "barnhardtperformance@gmail.com",
     priceRange: "$$",
-    foundingDate: "2017",
+    foundingDate: "2006",
     address: {
       "@type": "PostalAddress",
       streetAddress: "17152 115th St",
