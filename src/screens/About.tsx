@@ -43,7 +43,6 @@ const About = () =>
     <section className="py-16">
       <div className="container mx-auto px-4">
         <div className="text-center mb-12">
-          <span className="text-xs font-semibold text-accent uppercase tracking-widest mb-2 block">What Drives Us</span>
           <h2 className="font-heading text-3xl md:text-4xl font-bold text-foreground">Our Values</h2>
           <p className="text-muted-foreground mt-4 max-w-2xl mx-auto text-lg">As a veteran-owned business, we bring the core principles of military service into everything we do: integrity, discipline, and an uncompromising attention to detail.</p>
         </div>
